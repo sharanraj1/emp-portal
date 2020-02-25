@@ -1,0 +1,46 @@
+<br>
+<br>
+<div style="margin-bottom: 1%">
+  <div class="float-left">
+    <h5 style="
+        margin-top: 3%;
+    "><i class="fa fa-users" aria-hidden="true"></i> Employee List</h5>
+  </div>
+
+  <div class="inner-addon right-addon float-right">
+    <i class="fas fa-search"></i>
+    <input type="text" id="search" class="form-control" placeholder="Search" [(ngModel)]="searchText" />
+  </div>
+</div>
+
+<br>
+<hr>
+<table class="table emp-table">
+  <thead class="thead emp-table">
+    <tr>
+      <th class="emp-th">First Name</th>
+      <th class="emp-th">Last Name</th>
+      <th class="emp-th">Gender</th>
+      <th class="emp-th">Date of Birth</th>
+      <th class="emp-th">Department</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="showSpinner || noDatainDb || isException || (employees | search :searchText)?.length === 0 ">
+      <td colspan="5">
+        <app-spinner *ngIf="showSpinner" #spinner></app-spinner>
+        <h6  id="nocontent" *ngIf="noDatainDb || (employees | search :searchText)?.length === 0 "> <i class="fas fa-times-circle"></i> No employee
+          information found. </h6>
+        <h6 *ngIf="isException"><i class="fas fa-exclamation-triangle"></i> Something went wrong!.</h6>
+      </td>
+
+    </tr>
+    <tr *ngFor="let employee of employees | search :searchText">
+      <td>{{ employee.firstName }}</td>
+      <td>{{ employee.lastName }}</td>
+      <td>{{ employee.gender }} </td>
+      <td>{{ employee.dob | date: 'dd/MM/yyyy'}}</td>
+      <td>{{ employee.department }}</td>
+    </tr>
+  </tbody>
+</table>

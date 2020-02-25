@@ -1,0 +1,9 @@
+.disabled-button{
+    cursor: not-allowed;
+}
+:host{
+    width: 100%
+}
+.reg-heading{
+    margin-top: 50px;
+}

@@ -1,0 +1,32 @@
+:host{
+    width: 100%
+}
+
+.emp-table{
+  border-top: 1px solid #171717;
+  border-bottom: 1px solid #171717;
+}
+
+.emp-th {
+  border-top: 1px solid #171717;
+  border-bottom: 1px solid #171717 !important;
+}
+
+/* enable absolute positioning */
+.inner-addon {
+    position: relative;
+    width:25%
+  }
+  
+  /* style glyph */
+  .inner-addon .fas {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+  }
+  
+  .right-addon .fas { right: 0px;}
+  
+  .right-addon input { padding-right: 30px; }
+  
+  
